@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "KU Debate Alumni Network",
   description:
-    "Connect with Kansas Debate alumni and learn about the 2026 reunion, August 28–30.",
+    "Run It Back 2026 — reconnect with Kansas Debate alumni, August 28–30 in Lawrence.",
 };
 
 export default function RootLayout({
