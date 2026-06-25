@@ -15,8 +15,8 @@ export default function Footer() {
         <div className={styles.contact}>
           <p className={styles.contactLabel}>Contact</p>
           <p className={styles.contactText}>
-            Questions about the reunion? Email{" "}
-            <a href="mailto:alumni@kudebate.org">alumni@kudebate.org</a>
+            Questions about Run It Back or the alumni network? Email{" "}
+            <a href="mailto:info@kudebatealumni.com">info@kudebatealumni.com</a>
           </p>
         </div>
         <p className={styles.copyright}>

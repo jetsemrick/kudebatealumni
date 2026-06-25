@@ -322,3 +322,285 @@ main {
   margin: 0;
   color: var(--ku-text-muted);
 }
+
+.gallery-item {
+  margin: 0;
+}
+
+.gallery-item__frame {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid var(--ku-border);
+  background: var(--ku-light-gray);
+}
+
+.gallery-item__image {
+  object-fit: cover;
+}
+
+.gallery-item__caption {
+  margin: 0.5rem 0 0;
+  font-size: 0.875rem;
+  color: var(--ku-text-muted);
+  text-align: center;
+}
+
+.schedule {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.schedule-day {
+  border: 1px solid var(--ku-border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--ku-white);
+}
+
+.schedule-day__header {
+  padding: 1.25rem 1.5rem;
+  background: var(--ku-blue);
+  color: var(--ku-white);
+}
+
+.schedule-day__title {
+  margin: 0;
+  font-size: 1.375rem;
+  font-weight: 700;
+}
+
+.schedule-day__date {
+  margin: 0.25rem 0 0;
+  opacity: 0.9;
+}
+
+.schedule-day__events {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.schedule-event {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid var(--ku-border);
+}
+
+@media (min-width: 640px) {
+  .schedule-event {
+    grid-template-columns: 9rem 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.schedule-event__time {
+  margin: 0;
+  font-weight: 700;
+  color: var(--ku-crimson);
+  font-size: 0.9375rem;
+}
+
+.schedule-event__title {
+  margin: 0 0 0.375rem;
+  font-weight: 700;
+  color: var(--ku-near-black);
+}
+
+.schedule-event__location,
+.schedule-event__address,
+.schedule-event__notes {
+  margin: 0.125rem 0 0;
+  color: var(--ku-text-muted);
+  font-size: 0.9375rem;
+}
+
+.support-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 72ch;
+}
+
+.support-block p {
+  margin: 0 0 1rem;
+  color: var(--ku-text-muted);
+}
+
+.support-block p:last-child {
+  margin-bottom: 0;
+}
+
+.fund-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--ku-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.fund-list__item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1rem;
+  padding: 0.875rem 1rem;
+  border-top: 1px solid var(--ku-border);
+}
+
+.fund-list__item:first-child {
+  border-top: none;
+}
+
+.fund-list__number {
+  font-weight: 700;
+  color: var(--ku-blue);
+  font-variant-numeric: tabular-nums;
+  min-width: 3.5rem;
+}
+
+.fund-list__name {
+  flex: 1;
+  color: var(--ku-near-black);
+}
+
+.fund-list__badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ku-crimson);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.giving-method {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--ku-border);
+}
+
+.giving-method:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.giving-method__title {
+  margin: 0 0 0.75rem;
+  font-size: 1.125rem;
+  color: var(--ku-blue);
+}
+
+.giving-method ul {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+  color: var(--ku-text-muted);
+}
+
+.contact-card {
+  font-style: normal;
+  margin: 0 0 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--ku-light-gray);
+  border-radius: 8px;
+  color: var(--ku-near-black);
+}
+
+.contact-card p {
+  margin: 0 0 0.25rem;
+  color: inherit;
+}
+
+.bequest-language {
+  margin: 0;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--ku-blue);
+  background: var(--ku-light-gray);
+  color: var(--ku-text-muted);
+  font-style: italic;
+}
+
+.form-row {
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 480px) {
+  .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.form-fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.form-fieldset__legend {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ku-near-black);
+  margin-bottom: 0.375rem;
+}
+
+.form-fieldset__hint {
+  margin: 0 0 0.75rem;
+  font-size: 0.875rem;
+  color: var(--ku-text-muted);
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.checkbox-field {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 0.75rem;
+  border: 1px solid var(--ku-border);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.checkbox-field:has(input:checked) {
+  border-color: var(--ku-blue);
+  background: rgba(0, 81, 186, 0.06);
+}
+
+.checkbox-field input {
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.checkbox-field__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.checkbox-field__label {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--ku-near-black);
+}
+
+.checkbox-field__badge {
+  margin-left: 0.5rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ku-crimson);
+}
+
+.checkbox-field__description {
+  font-size: 0.875rem;
+  color: var(--ku-text-muted);
+}

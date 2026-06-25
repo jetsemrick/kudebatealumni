@@ -2,11 +2,11 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
-import type { SlideshowImage } from "@/lib/slideshow-images";
+import type { GalleryImage } from "@/lib/gallery-images";
 import styles from "./HeroSlideshow.module.css";
 
 type HeroSlideshowProps = {
-  images: SlideshowImage[];
+  images: GalleryImage[];
   intervalMs?: number;
 };
 

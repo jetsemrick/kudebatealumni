@@ -2,10 +2,21 @@
 
 import { useState } from "react";
 import Button from "@/components/Button";
-import PhotoPlaceholder from "@/components/PhotoPlaceholder";
+import PhotoGallery from "@/components/PhotoGallery";
+import { galleryImages } from "@/lib/gallery-images";
+import { saturdayMorningActivities } from "@/lib/schedule";
 
 export default function RsvpPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [selectedActivities, setSelectedActivities] = useState<string[]>([]);
+
+  function toggleActivity(id: string) {
+    setSelectedActivities((current) =>
+      current.includes(id)
+        ? current.filter((activityId) => activityId !== id)
+        : [...current, id],
+    );
+  }
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -16,11 +27,11 @@ export default function RsvpPage() {
     <>
       <section className="hero">
         <div className="container">
-          <p className="hero__eyebrow">2026 Reunion</p>
+          <p className="hero__eyebrow">Run It Back 2026</p>
           <h1 className="hero__title">RSVP</h1>
           <p className="hero__description">
-            Let us know you are coming to the KU Debate Alumni Reunion,
-            August 28–30, 2026 in Lawrence.
+            Let us know you are coming to Run It Back, August 28–30, 2026 in
+            Lawrence.
           </p>
         </div>
       </section>
@@ -30,23 +41,18 @@ export default function RsvpPage() {
           <div>
             <h2 className="section__title">We Hope to See You There</h2>
             <p className="section__subtitle">
-              Fill out the form to register your interest. A full schedule,
-              lodging details, and event locations will be shared closer to the
-              reunion date.
+              Fill out the form to register your interest. Indicate which
+              Saturday morning activities interest you so we can plan ahead.
             </p>
-            <PhotoPlaceholder
-              label="Reunion welcome reception"
-              aspectRatio="landscape"
-            />
+            <PhotoGallery images={galleryImages.slice(0, 4)} />
           </div>
 
           <div className="donate-panel">
-            <h2 className="donate-panel__title">Reunion Registration</h2>
+            <h2 className="donate-panel__title">Run It Back Registration</h2>
             <p className="donate-panel__text">
               August 28–30, 2026 · Lawrence, Kansas
             </p>
 
-            {/* Placeholder form — wire to backend or form provider when ready */}
             {submitted ? (
               <div className="rsvp-success">
                 <p className="rsvp-success__title">Thank you!</p>
@@ -57,16 +63,29 @@ export default function RsvpPage() {
               </div>
             ) : (
               <form className="rsvp-form" onSubmit={handleSubmit}>
-                <label className="form-field">
-                  <span className="form-field__label">Full name</span>
-                  <input
-                    className="form-field__input"
-                    type="text"
-                    name="name"
-                    required
-                    autoComplete="name"
-                  />
-                </label>
+                <div className="form-row">
+                  <label className="form-field">
+                    <span className="form-field__label">First name</span>
+                    <input
+                      className="form-field__input"
+                      type="text"
+                      name="firstName"
+                      required
+                      autoComplete="given-name"
+                    />
+                  </label>
+
+                  <label className="form-field">
+                    <span className="form-field__label">Last name</span>
+                    <input
+                      className="form-field__input"
+                      type="text"
+                      name="lastName"
+                      required
+                      autoComplete="family-name"
+                    />
+                  </label>
+                </div>
 
                 <label className="form-field">
                   <span className="form-field__label">Email</span>
@@ -80,7 +99,9 @@ export default function RsvpPage() {
                 </label>
 
                 <label className="form-field">
-                  <span className="form-field__label">Graduation year (optional)</span>
+                  <span className="form-field__label">
+                    Graduation year (optional)
+                  </span>
                   <input
                     className="form-field__input"
                     type="text"
@@ -92,13 +113,53 @@ export default function RsvpPage() {
 
                 <label className="form-field">
                   <span className="form-field__label">Number of guests</span>
-                  <select className="form-field__input" name="guests" defaultValue="1">
+                  <select
+                    className="form-field__input"
+                    name="guests"
+                    defaultValue="1"
+                  >
                     <option value="1">Just me</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4+</option>
                   </select>
                 </label>
+
+                <fieldset className="form-fieldset">
+                  <legend className="form-fieldset__legend">
+                    Saturday morning activities (optional)
+                  </legend>
+                  <p className="form-fieldset__hint">
+                    Select any activities you are interested in attending. The
+                    Rare Books Tour has limited capacity.
+                  </p>
+                  <div className="checkbox-group">
+                    {saturdayMorningActivities.map((activity) => (
+                      <label key={activity.id} className="checkbox-field">
+                        <input
+                          type="checkbox"
+                          name="saturdayActivities"
+                          value={activity.id}
+                          checked={selectedActivities.includes(activity.id)}
+                          onChange={() => toggleActivity(activity.id)}
+                        />
+                        <span className="checkbox-field__content">
+                          <span className="checkbox-field__label">
+                            {activity.label}
+                            {activity.rsvpRequired && (
+                              <span className="checkbox-field__badge">
+                                Limited capacity
+                              </span>
+                            )}
+                          </span>
+                          <span className="checkbox-field__description">
+                            {activity.description}
+                          </span>
+                        </span>
+                      </label>
+                    ))}
+                  </div>
+                </fieldset>
 
                 <label className="form-field">
                   <span className="form-field__label">Notes (optional)</span>

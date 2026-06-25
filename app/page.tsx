@@ -1,85 +1,46 @@
 import Button from "@/components/Button";
 import HeroSlideshow from "@/components/HeroSlideshow";
-import PhotoPlaceholder from "@/components/PhotoPlaceholder";
-import { heroSlideshowImages } from "@/lib/slideshow-images";
+import ScheduleSection from "@/components/ScheduleSection";
+import { galleryImages } from "@/lib/gallery-images";
+import { reunionSchedule } from "@/lib/schedule";
 
-export default function HomePage() {
+export default function RunItBackPage() {
   return (
     <>
       <section className="hero">
         <div className="container hero__grid">
           <div>
             <p className="hero__eyebrow">2026 Reunion</p>
-            <h1 className="hero__title">KU Debate Alumni Reunion</h1>
-            <p className="hero__dates">August 28–30, 2026</p>
+            <h1 className="hero__title">Run It Back</h1>
+            <p className="hero__dates">August 28–30, 2026 · Lawrence, Kansas</p>
             <p className="hero__description">
               Reconnect with fellow Jayhawk debaters, celebrate our shared
               history, and support the next generation of Kansas Debate.
             </p>
             <div className="hero__actions">
               <Button href="/rsvp" variant="primary">
-                RSVP for Reunion
+                RSVP for Run It Back
               </Button>
-              <Button href="#details" variant="outline">
-                Reunion Details
+              <Button href="#schedule" variant="outline">
+                View Schedule
               </Button>
               <Button href="/donate" variant="outline">
-                Support the Team
+                Support KU Debate
               </Button>
             </div>
           </div>
-          <HeroSlideshow images={heroSlideshowImages} />
+          <HeroSlideshow images={galleryImages} />
         </div>
       </section>
 
-      <section id="details" className="section">
+      <section id="schedule" className="section">
         <div className="container">
-          <h2 className="section__title">Reunion Details</h2>
+          <h2 className="section__title">Schedule of Events</h2>
           <p className="section__subtitle">
-            Mark your calendar for a weekend of debate, reminiscing, and
-            Jayhawk pride in Lawrence.
+            Run It Back 2026 — initial schedule. Some locations and details are
+            still being finalized; RSVP to stay updated.
           </p>
-          <div className="details-grid">
-            <article className="detail-card">
-              <p className="detail-card__label">When</p>
-              <h3 className="detail-card__title">August 28–30, 2026</h3>
-              <p className="detail-card__text">
-                Friday evening welcome reception through Sunday brunch. Full
-                schedule to be announced.
-              </p>
-            </article>
-            <article className="detail-card">
-              <p className="detail-card__label">Where</p>
-              <h3 className="detail-card__title">Lawrence, Kansas</h3>
-              <p className="detail-card__text">
-                Events will be held on the University of Kansas campus and
-                nearby venues. Specific locations coming soon.
-              </p>
-            </article>
-            <article className="detail-card">
-              <p className="detail-card__label">Lodging</p>
-              <h3 className="detail-card__title">Hotel Block</h3>
-              <p className="detail-card__text">
-                A discounted hotel block will be available for reunion
-                attendees. Booking details will be posted here.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section className="section section--alt">
-        <div className="container">
-          <h2 className="section__title">Memories Through the Years</h2>
-          <p className="section__subtitle">
-            Photo gallery coming soon. Share your favorite KU Debate moments.
-          </p>
-          <div className="gallery-grid">
-            <PhotoPlaceholder label="Team photo, circa 1990s" aspectRatio="square" />
-            <PhotoPlaceholder label="National tournament celebration" aspectRatio="square" />
-            <PhotoPlaceholder label="Alumni gathering" aspectRatio="square" />
-            <PhotoPlaceholder label="Current team with alumni" aspectRatio="square" />
-          </div>
+          <ScheduleSection schedule={reunionSchedule} />
         </div>
       </section>
 
@@ -93,10 +54,10 @@ export default function HomePage() {
             </p>
             <div className="connect-box__actions">
               <Button href="/rsvp" variant="primary">
-                RSVP for Reunion
+                RSVP for Run It Back
               </Button>
               <Button href="/donate" variant="secondary">
-                Make a Gift
+                Support KU Debate
               </Button>
             </div>
           </div>

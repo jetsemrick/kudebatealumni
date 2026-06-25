@@ -6,6 +6,7 @@ type ButtonProps = {
   href?: string;
   variant?: "primary" | "secondary" | "outline";
   disabled?: boolean;
+  external?: boolean;
   type?: "button" | "submit";
   onClick?: () => void;
   className?: string;
@@ -16,6 +17,7 @@ export default function Button({
   href,
   variant = "primary",
   disabled = false,
+  external = false,
   type = "button",
   onClick,
   className = "",
@@ -23,6 +25,19 @@ export default function Button({
   const classes = `${styles.button} ${styles[`button--${variant}`]} ${className}`;
 
   if (href && !disabled) {
+    if (external) {
+      return (
+        <a
+          href={href}
+          className={classes}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {children}
+        </a>
+      );
+    }
+
     return (
       <Link href={href} className={classes}>
         {children}
