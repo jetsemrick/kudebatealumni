@@ -94,7 +94,7 @@ export default function RsvpPage() {
 
   return (
     <>
-      <section className="hero">
+      <section className="hero rsvp-hero">
         <div className="container">
           <p className="hero__eyebrow">Run It Back 2026</p>
           <h1 className="hero__title">RSVP</h1>
@@ -105,9 +105,9 @@ export default function RsvpPage() {
         </div>
       </section>
 
-      <section className="section">
-        <div className="container donate-layout">
-          <div>
+      <section className="section rsvp-section">
+        <div className="container donate-layout rsvp-layout">
+          <div className="rsvp-media">
             <h2 className="section__title">We Hope to See You There</h2>
             <p className="section__subtitle">
               Fill out the form to register your interest. Indicate which meals
