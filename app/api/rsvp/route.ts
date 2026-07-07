@@ -6,6 +6,7 @@ type RsvpPayload = {
   email: string;
   graduationYear: string;
   guests: string;
+  meals: string[];
   saturdayActivities: string[];
   notes: string;
 };
@@ -32,6 +33,9 @@ function parsePayload(body: unknown): RsvpPayload | null {
   const graduationYear =
     typeof data.graduationYear === "string" ? data.graduationYear.trim() : "";
   const notes = typeof data.notes === "string" ? data.notes.trim() : "";
+  const meals = Array.isArray(data.meals)
+    ? data.meals.filter((meal): meal is string => typeof meal === "string")
+    : [];
   const saturdayActivities = Array.isArray(data.saturdayActivities)
     ? data.saturdayActivities.filter(
         (activity): activity is string => typeof activity === "string",
@@ -48,6 +52,7 @@ function parsePayload(body: unknown): RsvpPayload | null {
     email,
     graduationYear,
     guests,
+    meals,
     saturdayActivities,
     notes,
   };

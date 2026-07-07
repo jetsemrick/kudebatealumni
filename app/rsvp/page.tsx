@@ -47,7 +47,6 @@ export default function RsvpPage() {
     );
   }
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setSubmitError(null);
@@ -60,6 +59,7 @@ export default function RsvpPage() {
       email: String(formData.get("email") ?? ""),
       graduationYear: String(formData.get("graduationYear") ?? ""),
       guests: String(formData.get("guests") ?? "1"),
+      meals: selectedMeals,
       saturdayActivities: selectedActivities,
       notes: String(formData.get("notes") ?? ""),
     };
