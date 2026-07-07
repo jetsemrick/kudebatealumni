@@ -6,14 +6,41 @@ import PhotoGallery from "@/components/PhotoGallery";
 import { galleryImages } from "@/lib/gallery-images";
 import { saturdayMorningActivities } from "@/lib/schedule";
 
+const mealOptions = [
+  {
+    id: "friday-dinner",
+    label: "Friday dinner",
+    description: "Friday evening kickoff dinner.",
+  },
+  {
+    id: "saturday-lunch",
+    label: "Saturday lunch",
+    description: "Saturday lunch and program at the Jayhawk Welcome Center.",
+  },
+  {
+    id: "saturday-dinner",
+    label: "Saturday dinner",
+    description: "Saturday evening dinner.",
+  },
+];
+
 export default function RsvpPage() {
   const [submitted, setSubmitted] = useState(false);
   const [selectedActivities, setSelectedActivities] = useState<string[]>([]);
+  const [selectedMeals, setSelectedMeals] = useState<string[]>([]);
 
   function toggleActivity(id: string) {
     setSelectedActivities((current) =>
       current.includes(id)
         ? current.filter((activityId) => activityId !== id)
+        : [...current, id],
+    );
+  }
+
+  function toggleMeal(id: string) {
+    setSelectedMeals((current) =>
+      current.includes(id)
+        ? current.filter((mealId) => mealId !== id)
         : [...current, id],
     );
   }
@@ -41,8 +68,8 @@ export default function RsvpPage() {
           <div>
             <h2 className="section__title">We Hope to See You There</h2>
             <p className="section__subtitle">
-              Fill out the form to register your interest. Indicate which
-              Saturday morning activities interest you so we can plan ahead.
+              Fill out the form to register your interest. Indicate which meals
+              and Saturday morning activities interest you so we can plan ahead.
             </p>
             <PhotoGallery images={galleryImages.slice(0, 4)} />
           </div>
@@ -124,6 +151,37 @@ export default function RsvpPage() {
                     <option value="4">4+</option>
                   </select>
                 </label>
+
+                <fieldset className="form-fieldset">
+                  <legend className="form-fieldset__legend">
+                    Meals you plan to attend
+                  </legend>
+                  <p className="form-fieldset__hint">
+                    Select each meal you expect to join so we can estimate
+                    attendance.
+                  </p>
+                  <div className="checkbox-group">
+                    {mealOptions.map((meal) => (
+                      <label key={meal.id} className="checkbox-field">
+                        <input
+                          type="checkbox"
+                          name="meals"
+                          value={meal.id}
+                          checked={selectedMeals.includes(meal.id)}
+                          onChange={() => toggleMeal(meal.id)}
+                        />
+                        <span className="checkbox-field__content">
+                          <span className="checkbox-field__label">
+                            {meal.label}
+                          </span>
+                          <span className="checkbox-field__description">
+                            {meal.description}
+                          </span>
+                        </span>
+                      </label>
+                    ))}
+                  </div>
+                </fieldset>
 
                 <fieldset className="form-fieldset">
                   <legend className="form-fieldset__legend">
