@@ -26,6 +26,8 @@ const mealOptions = [
 
 export default function RsvpPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [selectedActivities, setSelectedActivities] = useState<string[]>([]);
   const [selectedMeals, setSelectedMeals] = useState<string[]>([]);
 
@@ -46,8 +48,48 @@ export default function RsvpPage() {
   }
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSubmitted(true);
+    setSubmitError(null);
+    setIsSubmitting(true);
+
+    const formData = new FormData(event.currentTarget);
+    const payload = {
+      firstName: String(formData.get("firstName") ?? ""),
+      lastName: String(formData.get("lastName") ?? ""),
+      email: String(formData.get("email") ?? ""),
+      graduationYear: String(formData.get("graduationYear") ?? ""),
+      guests: String(formData.get("guests") ?? "1"),
+      saturdayActivities: selectedActivities,
+      notes: String(formData.get("notes") ?? ""),
+    };
+
+    try {
+      const response = await fetch("/api/rsvp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        const data = (await response.json().catch(() => null)) as {
+          error?: string;
+        } | null;
+        throw new Error(
+          data?.error ?? "Failed to record your RSVP. Please try again.",
+        );
+      }
+
+      setSubmitted(true);
+    } catch (error) {
+      setSubmitError(
+        error instanceof Error
+          ? error.message
+          : "Failed to record your RSVP. Please try again.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -229,14 +271,15 @@ export default function RsvpPage() {
                   />
                 </label>
 
-                <Button type="submit" variant="primary">
-                  Submit RSVP
+                <Button type="submit" variant="primary" disabled={isSubmitting}>
+                  {isSubmitting ? "Submitting..." : "Submit RSVP"}
                 </Button>
 
-                <p className="donate-note">
-                  This is a placeholder form. Responses are not yet stored —
-                  backend integration coming soon.
-                </p>
+                {submitError ? (
+                  <p className="rsvp-error" role="alert">
+                    {submitError}
+                  </p>
+                ) : null}
               </form>
             )}
           </div>
