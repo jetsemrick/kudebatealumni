@@ -108,6 +108,7 @@ export const reunionSchedule: ScheduleDay[] = [
 export type SaturdayActivity = {
   id: string;
   label: string;
+  time: string;
   description: string;
   rsvpRequired?: boolean;
 };
@@ -116,27 +117,32 @@ export const saturdayMorningActivities: SaturdayActivity[] = [
   {
     id: "coffee-donuts",
     label: "Coffee & Donuts with the Squad",
+    time: "9:00 AM",
     description: "Available all morning in the Squad Room starting at 9:00 AM.",
   },
   {
     id: "recreation",
     label: "Recreation: Basketball and Pickleball",
+    time: "9:00 AM",
     description: "9:00 AM at Ambler Student Recreation Center.",
   },
   {
     id: "power-walk",
     label: "Campus Coffee & Power Walk",
+    time: "9:30 AM",
     description: "9:30 AM walk through downtown Lawrence.",
   },
   {
     id: "rare-books",
     label: "Spencer Research Library Rare Books Tour",
+    time: "10:00 AM",
     description: "10:00 AM start. Limited capacity.",
     rsvpRequired: true,
   },
   {
     id: "ku-tour",
     label: "KU Behind-the-Scenes Tour",
+    time: "10:00 AM",
     description: "10:00 AM tour of hidden sights of KU with the facilities team.",
   },
 ];

@@ -8,16 +8,19 @@ const mealOptions = [
   {
     id: "friday-dinner",
     label: "Friday dinner",
+    time: "7:00 PM",
     description: "Friday evening kickoff dinner.",
   },
   {
     id: "saturday-lunch",
     label: "Saturday lunch",
+    time: "12:30 PM",
     description: "Saturday lunch and program at the Jayhawk Welcome Center.",
   },
   {
     id: "saturday-dinner",
     label: "Saturday dinner",
+    time: "6:30 PM",
     description: "Saturday evening dinner.",
   },
 ];
@@ -105,11 +108,15 @@ export default function RsvpPage() {
 
       <section className="section rsvp-section">
         <div className="container rsvp-layout">
-          <div className="donate-panel">
-            <h2 className="donate-panel__title">Run It Back Registration</h2>
-            <p className="donate-panel__text">
-              August 28–30, 2026 · Lawrence, Kansas
-            </p>
+          <div className="donate-panel rsvp-panel">
+            <div className="rsvp-panel__header">
+              <div>
+                <h2 className="donate-panel__title">Run It Back Registration</h2>
+                <p className="donate-panel__text">
+                  August 28–30, 2026 · Lawrence, Kansas
+                </p>
+              </div>
+            </div>
 
             {submitted ? (
               <div className="rsvp-success">
@@ -204,8 +211,13 @@ export default function RsvpPage() {
                             onChange={() => toggleMeal(meal.id)}
                           />
                           <span className="checkbox-field__content">
-                            <span className="checkbox-field__label">
-                              {meal.label}
+                            <span className="checkbox-field__header">
+                              <span className="checkbox-field__label">
+                                {meal.label}
+                              </span>
+                              <span className="checkbox-field__time">
+                                {meal.time}
+                              </span>
                             </span>
                             <span className="checkbox-field__description">
                               {meal.description}
@@ -234,13 +246,20 @@ export default function RsvpPage() {
                             onChange={() => toggleActivity(activity.id)}
                           />
                           <span className="checkbox-field__content">
-                            <span className="checkbox-field__label">
-                              {activity.label}
-                              {activity.rsvpRequired && (
-                                <span className="checkbox-field__badge">
-                                  Limited capacity
+                            <span className="checkbox-field__header">
+                              <span className="checkbox-field__label">
+                                {activity.label}
+                              </span>
+                              <span className="checkbox-field__meta">
+                                {activity.rsvpRequired && (
+                                  <span className="checkbox-field__badge">
+                                    Limited capacity
+                                  </span>
+                                )}
+                                <span className="checkbox-field__time">
+                                  {activity.time}
                                 </span>
-                              )}
+                              </span>
                             </span>
                             <span className="checkbox-field__description">
                               {activity.description}
