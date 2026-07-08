@@ -95,17 +95,6 @@ export default function RsvpPage() {
 
   return (
     <>
-      <section className="hero rsvp-hero">
-        <div className="container">
-          <p className="hero__eyebrow">Run It Back 2026</p>
-          <h1 className="hero__title">RSVP</h1>
-          <p className="hero__description">
-            Let us know you are coming to Run It Back, August 28–30, 2026 in
-            Lawrence.
-          </p>
-        </div>
-      </section>
-
       <section className="section rsvp-section">
         <div className="container rsvp-layout">
           <div className="donate-panel rsvp-panel">

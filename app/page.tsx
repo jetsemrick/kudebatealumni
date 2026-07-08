@@ -27,6 +27,9 @@ export default function RunItBackPage() {
               <Button href="/donate" variant="outline">
                 Support KU Debate
               </Button>
+              <Button href="#lodging" variant="outline">
+                Lodging
+              </Button>
             </div>
           </div>
           <HeroSlideshow images={galleryImages} />
@@ -41,6 +44,60 @@ export default function RunItBackPage() {
             still being finalized; RSVP to stay updated.
           </p>
           <ScheduleSection schedule={reunionSchedule} />
+        </div>
+      </section>
+
+      <section id="lodging" className="section section--alt">
+        <div className="container">
+          <h2 className="section__title">Lodging Details</h2>
+          <p className="section__subtitle">
+            Book early for reunion weekend. We have a room block at The Oread
+            Lawrence and are working on additional hotel blocks.
+          </p>
+
+          <div className="lodging-grid">
+            <article className="lodging-card lodging-card--featured">
+              <p className="lodging-card__label">Reunion Room Block</p>
+              <h3 className="lodging-card__title">The Oread Lawrence</h3>
+              <p className="lodging-card__rate">$189 per night</p>
+              <p className="lodging-card__text">
+                Call <a href="tel:17858431200">(785) 843-1200</a> and reference
+                “KU Debate” when booking.
+              </p>
+            </article>
+
+            <article className="lodging-card">
+              <h3 className="lodging-card__title">Tru by Hilton Lawrence</h3>
+              <p className="lodging-card__rate">$110 on a recent search</p>
+              <p className="lodging-card__text">
+                510 Wakarusa Drive · <a href="tel:17853710600">(785) 371-0600</a>
+              </p>
+            </article>
+
+            <article className="lodging-card">
+              <h3 className="lodging-card__title">StoneHill Hotel Lawrence</h3>
+              <p className="lodging-card__rate">$113 on a recent search</p>
+              <p className="lodging-card__text">
+                6101 Rock Chalk Drive ·{" "}
+                <a href="tel:17853309520">(785) 330-9520</a>
+              </p>
+            </article>
+
+            <article className="lodging-card">
+              <h3 className="lodging-card__title">
+                DoubleTree by Hilton Hotel Lawrence
+              </h3>
+              <p className="lodging-card__rate">$100 on a recent search</p>
+              <p className="lodging-card__text">
+                200 McDonald Drive · <a href="tel:17858417077">(785) 841-7077</a>
+              </p>
+              <p className="lodging-card__note">
+                Formerly the Holidome; made famous at World Cup by the Algerian
+                Team’s selection of the DoubleTree. Pet friendly with a swimming
+                pool.
+              </p>
+            </article>
+          </div>
         </div>
       </section>
 
