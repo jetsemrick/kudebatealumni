@@ -2,8 +2,6 @@
 
 import { useState } from "react";
 import Button from "@/components/Button";
-import PhotoGallery from "@/components/PhotoGallery";
-import { galleryImages } from "@/lib/gallery-images";
 import { saturdayMorningActivities } from "@/lib/schedule";
 
 const mealOptions = [
@@ -106,16 +104,7 @@ export default function RsvpPage() {
       </section>
 
       <section className="section rsvp-section">
-        <div className="container donate-layout rsvp-layout">
-          <div className="rsvp-media">
-            <h2 className="section__title">We Hope to See You There</h2>
-            <p className="section__subtitle">
-              Fill out the form to register your interest. Indicate which meals
-              and Saturday morning activities interest you so we can plan ahead.
-            </p>
-            <PhotoGallery images={galleryImages.slice(0, 4)} />
-          </div>
-
+        <div className="container rsvp-layout">
           <div className="donate-panel">
             <h2 className="donate-panel__title">Run It Back Registration</h2>
             <p className="donate-panel__text">
@@ -156,117 +145,119 @@ export default function RsvpPage() {
                   </label>
                 </div>
 
-                <label className="form-field">
-                  <span className="form-field__label">Email</span>
-                  <input
-                    className="form-field__input"
-                    type="email"
-                    name="email"
-                    required
-                    autoComplete="email"
-                  />
-                </label>
+                <div className="rsvp-details-grid">
+                  <label className="form-field rsvp-email-field">
+                    <span className="form-field__label">Email</span>
+                    <input
+                      className="form-field__input"
+                      type="email"
+                      name="email"
+                      required
+                      autoComplete="email"
+                    />
+                  </label>
 
-                <label className="form-field">
-                  <span className="form-field__label">
-                    Graduation year (optional)
-                  </span>
-                  <input
-                    className="form-field__input"
-                    type="text"
-                    name="graduationYear"
-                    inputMode="numeric"
-                    placeholder="e.g. 2015"
-                  />
-                </label>
+                  <label className="form-field">
+                    <span className="form-field__label">
+                      Graduation year (optional)
+                    </span>
+                    <input
+                      className="form-field__input"
+                      type="text"
+                      name="graduationYear"
+                      inputMode="numeric"
+                      placeholder="e.g. 2015"
+                    />
+                  </label>
 
-                <label className="form-field">
-                  <span className="form-field__label">Number of guests</span>
-                  <select
-                    className="form-field__input"
-                    name="guests"
-                    defaultValue="1"
-                  >
-                    <option value="1">Just me</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4+</option>
-                  </select>
-                </label>
+                  <label className="form-field">
+                    <span className="form-field__label">Number of guests</span>
+                    <select
+                      className="form-field__input"
+                      name="guests"
+                      defaultValue="1"
+                    >
+                      <option value="1">Just me</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4+</option>
+                    </select>
+                  </label>
+                </div>
 
-                <fieldset className="form-fieldset">
-                  <legend className="form-fieldset__legend">
-                    Meals you plan to attend
-                  </legend>
-                  <p className="form-fieldset__hint">
-                    Select each meal you expect to join so we can estimate
-                    attendance.
-                  </p>
-                  <div className="checkbox-group">
-                    {mealOptions.map((meal) => (
-                      <label key={meal.id} className="checkbox-field">
-                        <input
-                          type="checkbox"
-                          name="meals"
-                          value={meal.id}
-                          checked={selectedMeals.includes(meal.id)}
-                          onChange={() => toggleMeal(meal.id)}
-                        />
-                        <span className="checkbox-field__content">
-                          <span className="checkbox-field__label">
-                            {meal.label}
+                <div className="rsvp-options-row">
+                  <fieldset className="form-fieldset">
+                    <legend className="form-fieldset__legend">
+                      Meals you plan to attend
+                    </legend>
+                    <p className="form-fieldset__hint">
+                      Select each meal you expect to join.
+                    </p>
+                    <div className="checkbox-group">
+                      {mealOptions.map((meal) => (
+                        <label key={meal.id} className="checkbox-field">
+                          <input
+                            type="checkbox"
+                            name="meals"
+                            value={meal.id}
+                            checked={selectedMeals.includes(meal.id)}
+                            onChange={() => toggleMeal(meal.id)}
+                          />
+                          <span className="checkbox-field__content">
+                            <span className="checkbox-field__label">
+                              {meal.label}
+                            </span>
+                            <span className="checkbox-field__description">
+                              {meal.description}
+                            </span>
                           </span>
-                          <span className="checkbox-field__description">
-                            {meal.description}
-                          </span>
-                        </span>
-                      </label>
-                    ))}
-                  </div>
-                </fieldset>
+                        </label>
+                      ))}
+                    </div>
+                  </fieldset>
 
-                <fieldset className="form-fieldset">
-                  <legend className="form-fieldset__legend">
-                    Saturday morning activities (optional)
-                  </legend>
-                  <p className="form-fieldset__hint">
-                    Select any activities you are interested in attending. The
-                    Rare Books Tour has limited capacity.
-                  </p>
-                  <div className="checkbox-group">
-                    {saturdayMorningActivities.map((activity) => (
-                      <label key={activity.id} className="checkbox-field">
-                        <input
-                          type="checkbox"
-                          name="saturdayActivities"
-                          value={activity.id}
-                          checked={selectedActivities.includes(activity.id)}
-                          onChange={() => toggleActivity(activity.id)}
-                        />
-                        <span className="checkbox-field__content">
-                          <span className="checkbox-field__label">
-                            {activity.label}
-                            {activity.rsvpRequired && (
-                              <span className="checkbox-field__badge">
-                                Limited capacity
-                              </span>
-                            )}
+                  <fieldset className="form-fieldset">
+                    <legend className="form-fieldset__legend">
+                      Saturday morning activities (optional)
+                    </legend>
+                    <p className="form-fieldset__hint">
+                      Select any activities that interest you.
+                    </p>
+                    <div className="checkbox-group">
+                      {saturdayMorningActivities.map((activity) => (
+                        <label key={activity.id} className="checkbox-field">
+                          <input
+                            type="checkbox"
+                            name="saturdayActivities"
+                            value={activity.id}
+                            checked={selectedActivities.includes(activity.id)}
+                            onChange={() => toggleActivity(activity.id)}
+                          />
+                          <span className="checkbox-field__content">
+                            <span className="checkbox-field__label">
+                              {activity.label}
+                              {activity.rsvpRequired && (
+                                <span className="checkbox-field__badge">
+                                  Limited capacity
+                                </span>
+                              )}
+                            </span>
+                            <span className="checkbox-field__description">
+                              {activity.description}
+                            </span>
                           </span>
-                          <span className="checkbox-field__description">
-                            {activity.description}
-                          </span>
-                        </span>
-                      </label>
-                    ))}
-                  </div>
-                </fieldset>
+                        </label>
+                      ))}
+                    </div>
+                  </fieldset>
+                </div>
 
                 <label className="form-field">
                   <span className="form-field__label">Notes (optional)</span>
                   <textarea
                     className="form-field__input form-field__textarea"
                     name="notes"
-                    rows={3}
+                    rows={2}
                     placeholder="Dietary restrictions, accessibility needs, etc."
                   />
                 </label>
