@@ -69,12 +69,6 @@ export const reunionSchedule: ScheduleDay[] = [
           "RSVP required. Number of attendees limited. Bailey Hall is next door — grab coffee and pastries at the food truck.",
       },
       {
-        time: "10:00 AM",
-        title: "KU Behind-the-Scenes: Tour of the Hidden Sights of KU",
-        notes:
-          "Led by our KU facilities team (Fraser Flags, etc.). Meetup location TBD.",
-      },
-      {
         time: "12:30 PM",
         title: "Lunch and Program",
         location: "Jayhawk Welcome Center",
@@ -143,11 +137,5 @@ export const saturdayMorningActivities: SaturdayActivity[] = [
     time: "10:00 AM",
     description: "10:00 AM start. Limited capacity.",
     rsvpRequired: true,
-  },
-  {
-    id: "ku-tour",
-    label: "KU Behind-the-Scenes Tour",
-    time: "10:00 AM",
-    description: "10:00 AM tour of hidden sights of KU with the facilities team.",
   },
 ];
