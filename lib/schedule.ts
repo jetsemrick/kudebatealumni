@@ -43,10 +43,11 @@ export const reunionSchedule: ScheduleDay[] = [
       },
       {
         time: "9:00 AM",
-        title: "Coffee & Donuts with the Squad",
+        title: "Coffee & Pastries with the Squad",
         location: "KU Debate Squad Room, Bailey Hall, KU Campus",
         address: "1440 Jayhawk Blvd.",
-        notes: "Available all morning starting at 9:00 AM.",
+        notes:
+          "Uplift Coffee's truck will be parked outside Bailey Hall with coffee and assorted pastries.",
       },
       {
         time: "9:00 AM",
@@ -56,21 +57,16 @@ export const reunionSchedule: ScheduleDay[] = [
       },
       {
         time: "9:30 AM",
-        title: "Campus Coffee & Power Walk through Downtown Lawrence",
-        notes: "Meetup location TBD.",
+        title: "Campus Coffee & Power Walk",
+        notes: "Starting at Bailey Hall and walking around campus.",
       },
       {
         time: "10:00 AM",
         title: "Spencer Research Library Rare Books Tour",
         location: "Spencer Research Library, KU Campus",
         address: "1450 Poplar Lane",
-        notes: "RSVP required. Number of attendees limited.",
-      },
-      {
-        time: "10:00 AM",
-        title: "KU Behind-the-Scenes: Tour of the Hidden Sights of KU",
         notes:
-          "Led by our KU facilities team (Fraser Flags, etc.). Meetup location TBD.",
+          "RSVP required. Number of attendees limited. Bailey Hall is next door — grab coffee and pastries at the food truck.",
       },
       {
         time: "12:30 PM",
@@ -86,7 +82,9 @@ export const reunionSchedule: ScheduleDay[] = [
       {
         time: "6:30 PM",
         title: "Dinner",
-        notes: "Location TBD.",
+        location: "The Jayhawk Club",
+        address: "1809 Birdie Way, Lawrence, KS 66047",
+        notes: "Happy hour from 6:30–7:30 PM, with dinner at 7:30 PM.",
       },
     ],
   },
@@ -115,10 +113,11 @@ export type SaturdayActivity = {
 
 export const saturdayMorningActivities: SaturdayActivity[] = [
   {
-    id: "coffee-donuts",
-    label: "Coffee & Donuts with the Squad",
+    id: "coffee-pastries",
+    label: "Coffee & Pastries with the Squad",
     time: "9:00 AM",
-    description: "Available all morning in the Squad Room starting at 9:00 AM.",
+    description:
+      "Uplift Coffee's truck will be parked outside Bailey Hall with coffee and assorted pastries.",
   },
   {
     id: "recreation",
@@ -130,7 +129,7 @@ export const saturdayMorningActivities: SaturdayActivity[] = [
     id: "power-walk",
     label: "Campus Coffee & Power Walk",
     time: "9:30 AM",
-    description: "9:30 AM walk through downtown Lawrence.",
+    description: "9:30 AM, starting at Bailey Hall and walking around campus.",
   },
   {
     id: "rare-books",
@@ -138,11 +137,5 @@ export const saturdayMorningActivities: SaturdayActivity[] = [
     time: "10:00 AM",
     description: "10:00 AM start. Limited capacity.",
     rsvpRequired: true,
-  },
-  {
-    id: "ku-tour",
-    label: "KU Behind-the-Scenes Tour",
-    time: "10:00 AM",
-    description: "10:00 AM tour of hidden sights of KU with the facilities team.",
   },
 ];
