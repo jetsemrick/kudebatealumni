@@ -52,8 +52,9 @@ export const reunionSchedule: ScheduleDay[] = [
       {
         time: "9:00 AM",
         title: "Recreation with Squadmates: Basketball and Pickleball",
-        location: "Ambler Student Recreation Center",
-        address: "1740 Watkins Center Drive",
+        location: "Robinson Health and Physical Education Center",
+        address: "1001 Sunnyside Avenue, Lawrence, Kansas 66045",
+        notes: "We will have a few basketball courts and a pickleball court.",
       },
       {
         time: "9:30 AM",
@@ -80,11 +81,11 @@ export const reunionSchedule: ScheduleDay[] = [
         location: "Jayhawk Welcome Center",
       },
       {
-        time: "6:30 PM",
+        time: "6:00 PM",
         title: "Dinner",
         location: "The Jayhawk Club",
         address: "1809 Birdie Way, Lawrence, KS 66047",
-        notes: "Happy hour from 6:30–7:30 PM, with dinner at 7:30 PM.",
+        notes: "Happy hour from 6:00–7:30 PM, with dinner at 7:30 PM.",
       },
     ],
   },
@@ -123,7 +124,8 @@ export const saturdayMorningActivities: SaturdayActivity[] = [
     id: "recreation",
     label: "Recreation: Basketball and Pickleball",
     time: "9:00 AM",
-    description: "9:00 AM at Ambler Student Recreation Center.",
+    description:
+      "9:00 AM at Robinson Health and Physical Education Center. We will have a few basketball courts and a pickleball court.",
   },
   {
     id: "power-walk",
