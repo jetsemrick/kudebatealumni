@@ -20,7 +20,7 @@ const mealOptions = [
   {
     id: "saturday-dinner",
     label: "Saturday dinner",
-    time: "6:30 PM",
+    time: "6:00 PM",
     description: "Saturday evening dinner.",
   },
 ];
