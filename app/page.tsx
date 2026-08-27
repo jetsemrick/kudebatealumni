@@ -1,7 +1,9 @@
 import Button from "@/components/Button";
 import HeroSlideshow from "@/components/HeroSlideshow";
+import ParkingSection from "@/components/ParkingSection";
 import ScheduleSection from "@/components/ScheduleSection";
 import { galleryImages } from "@/lib/gallery-images";
+import { parkingInstructions } from "@/lib/parking";
 import { reunionSchedule } from "@/lib/schedule";
 
 export default function RunItBackPage() {
@@ -27,6 +29,9 @@ export default function RunItBackPage() {
               <Button href="/donate" variant="outline">
                 Support KU Debate
               </Button>
+              <Button href="#parking" variant="outline">
+                Parking
+              </Button>
               <Button href="#lodging" variant="outline">
                 Lodging
               </Button>
@@ -44,6 +49,16 @@ export default function RunItBackPage() {
             still being finalized; RSVP to stay updated.
           </p>
           <ScheduleSection schedule={reunionSchedule} />
+        </div>
+      </section>
+
+      <section id="parking" className="section section--alt">
+        <div className="container">
+          <h2 className="section__title">Parking Instructions</h2>
+          <p className="section__subtitle">
+            Where to park for each Run It Back event.
+          </p>
+          <ParkingSection parking={parkingInstructions} />
         </div>
       </section>
 
