@@ -76,6 +76,14 @@ export const reunionSchedule: ScheduleDay[] = [
         address: "1266 Oread Avenue",
       },
       {
+        time: "2:00 PM",
+        title: "Jayhawk Debate Network",
+        location: "Jayhawk Welcome Center",
+        address: "1266 Oread Avenue",
+        notes:
+          "Launching the inaugural Jayhawk Debate Network, an optional program open to all attendees. Breakout groups for those interested or active in Academia, Business, Law, and others.",
+      },
+      {
         time: "2:30 PM",
         title: "Audience Debate: British Parliamentary Demonstration Debate",
         location: "Jayhawk Welcome Center",
